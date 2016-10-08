@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="public/css/styles.css">
+    <meta charset="utf-8">
+    <title>DevMnt Quiz App</title>
+  </head>
+  <body ng-app="quizApp">
+
+    <header>
+      <ul>
+        <li><a ui-sref="home">HOME</a></li>
+      </ul>
+    </header>
+
+    <ui-view></ui-view>
+
+
+<!-- AngularJS and Angular UI-Router CDNs -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+<!-- JS Files -->
+<script src="app.js"></script>
+<script src="components/home/homeCtrl.js"></script>
+<script src="components/quiz/quizCtrl.js"></script>
+<script src="components/results/resultsCtrl.js"></script>
+<script src="components/services/quizService.js"></script>
+  </body>
+</html>
