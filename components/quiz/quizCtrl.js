@@ -9,9 +9,9 @@ app.controller('QuizCtrl', function($scope, quizService, $stateParams, questions
 
 //Sets the $scope.currentQuestion to the next question if there is one
   $scope.nextQuestion = function(){
-    var idx = $scope.questions.indexOf($scope.currentQuestion);
-    if($scope.questions[idx + 1]) {
-      $scope.currentQuestion = $scope.questions[idx + 1];
+    var index = $scope.questions.indexOf($scope.currentQuestion);
+    if($scope.questions[index + 1]) {
+      $scope.currentQuestion = $scope.questions[index + 1];
     } else {
       return;
     }
@@ -37,8 +37,8 @@ app.controller('QuizCtrl', function($scope, quizService, $stateParams, questions
 
 //Adds an answer to the answers object and moves to the next question. If it's the last question it checks for correctness.
 
-  $scope.saveAnswer = function(answer) {
-    $scope.answers[$scope.currentQuestion.id] = answer;
+  $scope.saveAnswer = function(id, answer) {
+    $scope.answers[id] = answer;
     $scope.nextQuestion();
 
     if($scope.results.done) {
@@ -48,7 +48,9 @@ app.controller('QuizCtrl', function($scope, quizService, $stateParams, questions
 
 //
   $scope.handleEnter = function(event, answer) {
-    /* bonus, make this work */
+    if (event.keyCode === 13) {
+            $scope.saveAnswer(answer);
+        }
   };
 
 //Invoked anytime the user clicks a radio button. It needs to store the result on $scope.selected

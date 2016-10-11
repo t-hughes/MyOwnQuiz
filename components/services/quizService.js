@@ -66,9 +66,9 @@ app.service('quizService', function($q) {
       var defer = $q.defer();
 
       defer.resolve([{
-          name: "Angular",
+          name: 'Angular',
       },{
-          name: "HTML",
+          name: 'HTML',
       }]);
 
       return defer.promise;
@@ -80,6 +80,19 @@ app.service('quizService', function($q) {
      defer.resolve(quizSampleObj.angular.questions);
 
      return defer.promise;
+  };
+
+  this.checkMyAnswers = function (questions, answers) {
+    var defer = $q.defer();
+    var results = {
+      done: true
+    };
+    for (var i = 0; i < questions.length; i++) {
+      var isCorrect = questions[i].qtype === 'multiple' ? questions[i].choices[questions[i].correct] === answers[questions[i].id] : (questions[i].qtype === 'blank' ? questions[i].correct === answers[questions[i].id] : false); results[questions[i].id] = isCorrect;
+    }
+    defer.resolve(results);
+
+    return defer.promise;
   };
 
 });

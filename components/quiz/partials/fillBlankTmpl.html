@@ -1,0 +1,7 @@
+<div>
+<h1>{{question.title}}</h1>
+<br />
+  <input type="text" placeholder="Answer Here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Answer Here'" ng-model="answer" ng-keyup="handleEnter($event, answer)">
+<br />
+  <button class="saveBtn" ng-click="saveAnswer(answer)"> Save and Continue </button>
+</div>
